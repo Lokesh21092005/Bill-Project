@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors({
-    origin : process.env.CORS_ORIGIN,
+    origin : "https://lokesh21092005.github.io",
     credentials : true
 }));
 
