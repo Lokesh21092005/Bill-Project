@@ -14,7 +14,7 @@
 
       if (response.ok) {
         // Redirect to login.html after success
-window.location.href = "https://bill-project-nidq.onrender.com/login.html";
+window.location.href = "https://bill-project-nidq.onrender.com/Bill-Project/login.html";
       } else {
         const result = await response.json();
         alert(result.message || "Registration failed");

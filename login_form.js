@@ -18,7 +18,7 @@ login_form.addEventListener('submit', async function (e) {
 
     if (response.ok) {
       // alert("Login successful!");
-      window.location.href = "https://bill-project-nidq.onrender.com/dashboard.html";
+      window.location.href = "https://bill-project-nidq.onrender.com/Bill-Project/dashboard.html";
     } else {
       alert(result.message || "Invalid credentials");
     }
