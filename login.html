@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header>
+    <div class="header" style="background-color: gray">
+      Smart Weighbridge Billing - Effortlessly Manage and Store All Your Weigh Bills in One Place.
+    </div>
+  </header>
+
+    <form id="loginForm" class="centered-form" action="http://localhost:5000/api/v1/users/login" method="post" autocomplete="off">
+      <div style="font-size: 30px; font-weight: bold">
+        Login
+      </div>
+      <div style="display: inline-block;">
+        <label for="email">E-MAIL :</label>
+        <input class="formElement" type="text" name="email" placeholder="Enter Email" required />
+      </div>
+      <div>
+        <input class="formElement" type="password" name="password" placeholder="Enter password" required />
+      </div>
+      <button type="submit">Login</button>
+      <div>
+        Don't have an account? <a href="./register.html">Register</a>
+      </div>
+    </form>
+
+  <script src = "./login_form.js"></script>
+</body>
+</html>

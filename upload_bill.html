@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+     <header style="
+     z-index: 1;
+     position:relative">
+        <div class = "header" style="
+        background-color :gray;
+        ">
+            Smart Weighbridge Billing - Effortlessly Manage and Store All Your Weigh Bills in One Place.
+        </div>
+    </header>
+
+    <div class="form-container">
+    <form id="uploadBill" class="centered-form" action="http://localhost:5000/api/v1/users/billUpload" method="post">
+        <div style = "
+        font-size: 30px;
+        font-weight : bold
+        ">
+            UPLOAD BILL
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="serialNo" placeholder="Enter serial No" required/>
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="vehicleNo" placeholder="Enter vehicle no" required/>
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="party" placeholder="Enter party name" required/>
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="grossWeight" placeholder="Enter gross weight" required/>
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="tareWeight" placeholder="Enter Tare weight" required/>
+        </div>
+       
+        <div>
+            <input class = "formElement" type="text" name="bags" placeholder="Enter no of bags" required/>
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="material" placeholder="Enter material type" required/>
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="charges" placeholder="Enter charges" required/>
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="inTime" placeholder="Enter In Time" required/>
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="outTime" placeholder="Enter out time" required/>
+        </div>
+        <button type="submit">Upload Bill</button>
+    </form>
+    </div>
+    <script src="./bill_form.js"></script>
+</body>
+</html>
+
+    </form>
+</div>
+</body>
+</html>

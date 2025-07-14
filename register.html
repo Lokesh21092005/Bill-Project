@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+     <header>
+        <div class = "header" style="background-color :gray">
+            Smart Weighbridge Billing - Effortlessly Manage and Store All Your Weigh Bills in One Place.
+        </div>
+    </header>
+
+    <div class="form-container">
+    <form id="registerForm" class="centered-form" action="http://localhost:5000/api/v1/users/register" method="post">
+        <div style = "
+        font-size: 30px;
+        font-weight : bold
+        ">
+            Register
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="fullName" placeholder="Enter Fullname" required/>
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="username" placeholder="Enter username" required/>
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="email" placeholder="Enter email" required/>
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="organisationName" placeholder="Enter organisationName" required/>
+        </div>
+        <div>
+            <input class = "formElement" type="text" name="password" placeholder="Enter password" required/>
+        </div>
+        <button type="submit">Register</button>
+        <div>
+            Already have an account ? <a href="./login.html">login</a>
+        </div>
+    </form>
+    </div>
+    <script src="./register_form.js"></script>
+</body>
+</html>

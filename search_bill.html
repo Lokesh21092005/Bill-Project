@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search Bill</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="header">
+    Smart Weighbridge Billing - Effortlessly Manage and Store All Your Weigh Bills in One Place.
+  </div>
+
+    <form
+    style="width: 50%;
+    justify-content :center;
+    align-items :center;
+    margin-left:25%;
+    margin-top :15px"
+      id="searchForm"
+      class="centered-form"
+      action="http://localhost:5000/api/v1/users/search"
+      method="post"
+    >
+      <div class="form-title">Search Bill</div>
+
+      <input
+        type="text"
+        id="searchInput"
+        name="value"
+        placeholder="Enter Search Term"
+        required
+      />
+
+      <div class="radio-group">
+        <label><input type="radio" name="field" value="serialNo" checked /> <span>Serial</span> No </label>
+        <label><input type="radio" name="field" value="party" /> Party</label>
+        <label><input type="radio" name="field" value="material" /> Material</label>
+      </div>
+
+      <button type="submit">Search</button>
+    </form>
+
+<div id="billResults"></div>
+  
+  <script src="./search_bill.js"></script>
+</body>
+</html>

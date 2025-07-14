@@ -1,0 +1,223 @@
+body {
+    margin: 0;
+    background-image: url('https://wallpapercave.com/wp/chnf2XN.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.header {
+      background-color: #444;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.2rem;
+  }
+
+.register{
+    font-size: large;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  justify-content: center;
+  align-items: center; 
+  background-color: rgba(255, 255, 255, 0);
+  text-align: center;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.centered-form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.centered-form input,
+.centered-form button {
+width:90%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family :sans-serif;
+}
+
+.options{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: rgba(255, 255, 255, 0);
+  text-align: center;
+}
+
+.option{
+ background-color: grey;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.329);
+  width: 20%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  font: bold;
+  font-size: 40px;
+  position: relative;
+  float: inline-end;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  overflow:inherit;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+label {
+   font-weight: bold;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.bill-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.radio-group {
+  display: flex;
+  gap: 2rem; /* space between options */
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 0.5rem;
+}
+
+
+.excel-table-wrapper {
+  overflow-x: auto;
+  margin-top: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.excel-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  font-size: 14px;
+}
+
+.excel-table thead {
+  background-color: #e0e0e0;
+}
+
+.excel-table th,
+.excel-table td {
+  border: 1px solid #bbb;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.excel-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.excel-table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.excel-table tbody tr:hover {
+  background-color: #d6f5ff;
+}
+
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+
+    
+
+    .form-title {
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+
+    .radio-group {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: bold;
+    }
+
+    button[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #billResults {
+      margin-top: 2rem;
+    }
+
+#registerForm{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; 
+  text-align: center;
+}
+
+#loginForm{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: auto;
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
