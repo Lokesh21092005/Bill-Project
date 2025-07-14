@@ -47,7 +47,7 @@ body {
 
 .centered-form input,
 .centered-form button {
-width:90%;
+  width:90%;
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
@@ -209,6 +209,7 @@ label {
   align-items: center;
   height: 60vh; 
   text-align: center;
+  margin-top: 20px;
 }
 
 #loginForm{
