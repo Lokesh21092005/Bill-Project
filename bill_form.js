@@ -21,7 +21,7 @@ bill_form.addEventListener('submit', async function (e) {
 
     if (response.ok) {
         alert("Bill Uploaded Successfully!")
-      window.location.href = "https://bill-project-nidq.onrender.com/Bill-Project/upload_bill.html";
+      window.location.href = "https://lokesh21092005.github.io/Bill-Project/upload_bill.html";
     } else {
       const result = await response.json();
       alert(result.message || "Uploading bill failed");
