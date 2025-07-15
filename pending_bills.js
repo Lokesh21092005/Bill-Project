@@ -34,7 +34,7 @@ async function completeBill(id) {
   if (outTime) data.outTime = new Date(outTime);
 
   const res = await fetch(`/api/v1/bill/${id}/complete`, {
-    method: 'post',
+    method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
