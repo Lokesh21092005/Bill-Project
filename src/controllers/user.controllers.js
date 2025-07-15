@@ -73,7 +73,7 @@ const uploadBill = asyncHandler(async (req, res) => {
     outTime
   } = req.body;
 
-  const requiredFields = [serialNo, vehicleNo, party, grossWeight, tareWeight, bags, material, charges, inTime, outTime];
+  const requiredFields = [serialNo, vehicleNo, party, grossWeight, tareWeight, bags, material, charges];
   if (requiredFields.some((field) => !field || String(field).trim() === "")) {
     throw new ApiError(400, "All fields are required");
   }
