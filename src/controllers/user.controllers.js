@@ -66,55 +66,51 @@ const uploadBill = asyncHandler(async (req, res) => {
     party,
     grossWeight,
     tareWeight,
+    netWeight,
     bags,
     material,
     charges,
     inTime,
-    outTime
+    outTime,
   } = req.body;
 
-  const requiredFields = [serialNo, vehicleNo, party, bags, material, charges];
-  if (requiredFields.some((field) => !field || String(field).trim() === "")) {
-    throw new ApiError(400, "All fields are required");
+  if (!serialNo || !vehicleNo || !party || !material || !bags) {
+    throw new ApiError(400, "Missing required fields.");
   }
 
-  const netWeight = grossWeight + tareWeight;
+  if (!grossWeight && !tareWeight) {
+    throw new ApiError(400, "At least grossWeight or tareWeight is required.");
+  }
 
-  // if (isNaN(Date.parse(inTime)) || isNaN(Date.parse(outTime))) {
-  // throw new ApiError(400, "Invalid date format for inTime or outTime");
-  // }
-
-  const existedBill = await Bill.findOne({serialNo});
-
+  const existedBill = await Bill.findOne({ serialNo });
   if (existedBill) {
     throw new ApiError(409, "Bill with same serial no. already exists");
   }
-  
+
+  const computedNetWeight =
+    grossWeight !== undefined && tareWeight !== undefined
+      ? Number(grossWeight) - Number(tareWeight)
+      : undefined;
 
   const bill = await Bill.create({
     serialNo,
-    vehicleNo, 
-    party, 
-    grossWeight, 
-    tareWeight, 
-    netWeight,
-    bags, 
-    material, 
-    charges, 
-    inTime, 
-    outTime
+    vehicleNo,
+    party,
+    grossWeight: grossWeight !== undefined ? Number(grossWeight) : undefined,
+    tareWeight: tareWeight !== undefined ? Number(tareWeight) : undefined,
+    netWeight: computedNetWeight,
+    bags: Number(bags),
+    material,
+    charges: charges !== undefined ? Number(charges) : undefined,
+    inTime: inTime ? new Date(inTime) : new Date(),
+    outTime: outTime ? new Date(outTime) : undefined,
   });
 
-  const createdBill = await Bill.findById(bill._id).select();
-
-  if (!createdBill) {
-    throw new ApiError(500, "Something went wrong while uploading the bill.");
-  }
-
-  return res.status(201).json(
-    new ApiResponse(201, createdBill, "Bill Uploaded Successfully")
-  );
+  return res
+    .status(201)
+    .json(new ApiResponse(201, bill, "Bill Uploaded Successfully"));
 });
+
 
 const searchBills = asyncHandler(async (req, res) => {
   const { field, value } = req.body;
