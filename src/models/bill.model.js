@@ -55,11 +55,9 @@ const billSchema = new Schema(
     },
     inTime: {
       type: Date, 
-      required: true,
     },
     outTime: {
       type: Date,
-      required: true,
     },
   },
   {

@@ -51,15 +51,27 @@
             <input class = "formElement" type="text" name="charges" placeholder="Enter charges" required/>
         </div>
         <div>
-            <input class = "formElement" type="text" name="inTime" placeholder="Enter In Time" required/>
+            <input class = "formElement" type="text" name="inTime" id = "inTime" placeholder="Enter In Time" required/>
         </div>
         <div>
-            <input class = "formElement" type="text" name="outTime" placeholder="Enter out time" required/>
+            <input class = "formElement" type="text" name="outTime" id = "outTime" placeholder="Enter out time" required/>
         </div>
         <button type="submit">Upload Bill</button>
     </form>
     </div>
-    <script src="./bill_form.js"></script>
+
+    <script src="./bill_form.js">
+    
+        window.addEventListener('DOMContentLoaded', () => {
+        const inTimeInput = document.getElementById('inTime');
+        if (!inTimeInput.value) {
+        const now = new Date();
+        const localISOTime = now.toISOString().slice(0,16); 
+        inTimeInput.value = localISOTime;
+    }
+  });
+
+    </script>
 </body>
 </html>
 
