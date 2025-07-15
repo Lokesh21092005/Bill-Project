@@ -1,12 +1,3 @@
-window.addEventListener('DOMContentLoaded', () => {
-  const inTimeInput = document.getElementById('inTime');
-  if (!inTimeInput.value) {
-    const now = new Date();
-    const localISOTime = now.toISOString().slice(0, 16);
-    inTimeInput.value = localISOTime;
-  }
-});
-
 const bill_form = document.getElementById('uploadBill');
 
 bill_form.addEventListener('submit', async function (e) {
@@ -14,6 +5,10 @@ bill_form.addEventListener('submit', async function (e) {
 
   const bill_form_data = new FormData(bill_form);
   const data = Object.fromEntries(bill_form_data.entries());
+
+  if (!data.inTime) {
+    data.inTime = getLocalDateTimeString(); 
+  }
 
   data.inTime = new Date(data.inTime);
   data.grossWeight = Number(data.grossWeight);
@@ -45,4 +40,8 @@ bill_form.addEventListener('submit', async function (e) {
   }
 });
 
-
+function getLocalDateTimeString() {
+  const now = new Date();
+  now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+  return now.toISOString().slice(0, 16);
+}
