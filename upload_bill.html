@@ -60,18 +60,7 @@
     </form>
     </div>
 
-    <script src="./bill_form.js">
-    
-        window.addEventListener('DOMContentLoaded', () => {
-        const inTimeInput = document.getElementById('inTime');
-        if (!inTimeInput.value) {
-        const now = new Date();
-        const localISOTime = now.toISOString().slice(0,16); 
-        inTimeInput.value = localISOTime;
-    }
-  });
-
-    </script>
+    <script src="./bill_form.js"></script>
 </body>
 </html>
 
