@@ -1,5 +1,5 @@
   async function fetchPendingBills() {
-  const res = await fetch('/api/v1/bill/pending');
+  const res = await fetch('https://bill-project-nidq.onrender.com/api/v1/bill/pending');
   const { bills } = await res.json();
 
   const container = document.getElementById('pendingBillsContainer');
