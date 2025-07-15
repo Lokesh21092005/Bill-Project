@@ -2,7 +2,9 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import cors from "cors"
-import cookieParser from "cookie-parser"
+import cookieParser from "cookie-parser";
+import  billRoutes from "./routes/bill.routes.js"
+
 
 
 const app = express()
@@ -31,6 +33,15 @@ import userRouter from './routes/user.routes.js'
 app.use("/api/v1/users" , userRouter);
 
 // http://localhost:5000/api/v1/users/register
+
+
+
+app.use(express.json());
+app.use('/api/v1/bill', billRoutes);
+
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
+});
 
 
 

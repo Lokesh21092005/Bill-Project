@@ -7,14 +7,37 @@ bill_form.addEventListener('submit', async function (e) {
   const data = Object.fromEntries(bill_form_data.entries());
 
   if (!data.inTime) {
-    data.inTime = getLocalDateTimeString(); 
+    data.inTime = getLocalDateTimeString();
   }
 
   data.inTime = new Date(data.inTime);
-  data.grossWeight = Number(data.grossWeight);
-  data.tareWeight = Number(data.tareWeight);
-  data.netWeight = Number(data.netWeight);
-  data.charges = Number(data.charges);
+
+  const hasGross = !!data.grossWeight;
+  const hasTare = !!data.tareWeight;
+
+  if (!hasGross && !hasTare) {
+    alert("Please enter either Gross Weight or Tare Weight.");
+    return;
+  }
+
+  if (hasGross) data.grossWeight = Number(data.grossWeight);
+  else delete data.grossWeight;
+
+  if (hasTare) data.tareWeight = Number(data.tareWeight);
+  else delete data.tareWeight;
+
+  if (hasGross && hasTare) {
+    data.netWeight = data.grossWeight - data.tareWeight;
+  } else {
+    delete data.netWeight;
+  }
+
+
+  if (data.charges) {
+    data.charges = Number(data.charges);
+  } else {
+    delete data.charges;
+  }
 
   if (data.outTime) {
     data.outTime = new Date(data.outTime);
@@ -32,6 +55,7 @@ bill_form.addEventListener('submit', async function (e) {
     const result = await response.json();
     if (response.ok) {
       alert('Bill uploaded successfully');
+      bill_form.reset(); // Optional: reset form after success
     } else {
       alert(result.message || 'Upload failed');
     }

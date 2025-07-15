@@ -23,24 +23,20 @@ const billSchema = new Schema(
       index: true,
     },
     grossWeight: {
-      type: Number, 
-      required: true,
-      trim: true,
+      type: Number,
+      required: false, // ✅ made optional
     },
     tareWeight: {
       type: Number,
-      required: true,
-      trim: true,
+      required: false, // ✅ made optional
     },
     netWeight: {
       type: Number,
-      required: true,
-      trim: true,
+      required: false, // ✅ calculated later
     },
     bags: {
       type: Number,
       required: true,
-      trim: true,
     },
     material: {
       type: String,
@@ -50,21 +46,21 @@ const billSchema = new Schema(
     },
     charges: {
       type: Number,
-      required: true,
-      trim: true,
+      required: false, // ✅ not always required initially
     },
     inTime: {
-      type: Date, 
-      required : false
+      type: Date,
+      required: false,
     },
     outTime: {
       type: Date,
-      required: false
+      required: false,
     },
   },
   {
-    timestamps: true, 
+    timestamps: true,
   }
 );
 
-export const Bill = mongoose.model("Bill", billSchema);
+const Bill = mongoose.model("Bill", billSchema);
+export default Bill;
