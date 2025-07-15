@@ -178,6 +178,19 @@ const loginUser = asyncHandler(async (req, res) =>{
 });
 
 
+const getPendingBills = asyncHandler(async (req, res) => {
+  const pendingBills = await Bill.find({
+    $or: [
+      { grossWeight: { $in: [null, undefined] } },
+      { tareWeight: { $in: [null, undefined] } }
+    ]
+  });
+
+  return res.status(200).json(
+    new ApiResponse(200, pendingBills, "Pending bills fetched successfully")
+  );
+});
+
 
 
 
@@ -187,5 +200,6 @@ export {
   registerUser,
   loginUser,
   uploadBill,
-  searchBills
+  searchBills,
+  getPendingBills
 }

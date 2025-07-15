@@ -1,4 +1,4 @@
-async function fetchPendingBills() {
+  async function fetchPendingBills() {
   const res = await fetch('/api/v1/bill/pending');
   const { bills } = await res.json();
 
@@ -34,7 +34,7 @@ async function completeBill(id) {
   if (outTime) data.outTime = new Date(outTime);
 
   const res = await fetch(`/api/v1/bill/${id}/complete`, {
-    method: 'PUT',
+    method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
