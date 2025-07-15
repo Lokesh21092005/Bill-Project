@@ -199,7 +199,7 @@ button[type="submit"] {
 /* ---------------------
    Responsive Design
 ---------------------- */
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .form-row {
     display: flex;
     flex-direction: column;
@@ -230,4 +230,4 @@ button[type="submit"] {
   button[type="submit"] {
     max-width: 100%;
   }
-}
+} */
