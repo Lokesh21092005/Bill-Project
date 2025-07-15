@@ -1,47 +1,49 @@
 async function fetchPendingBills() {
   const res = await fetch('/api/v1/bill/pending');
-  const data = await res.json();
-  const tbody = document.querySelector('#billsTable tbody');
-  tbody.innerHTML = '';
+  const { bills } = await res.json();
 
-  data.bills.forEach(bill => {
-    const tr = document.createElement('tr');
+  const container = document.getElementById('pendingBillsContainer');
+  container.innerHTML = '';
 
-    tr.innerHTML = `
-      <td>${bill.serialNo || '-'}</td>
-      <td><input type="number" value="${bill.grossWeight || ''}" id="gross-${bill._id}"/></td>
-      <td><input type="number" value="${bill.tareWeight || ''}" id="tare-${bill._id}"/></td>
-      <td><input type="datetime-local" id="outTime-${bill._id}"/></td>
-      <td><button onclick="updateBill('${bill._id}')">Update</button></td>
+  bills.forEach(bill => {
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+        <p><strong>Serial No:</strong> ${bill.serialNo}</p>
+        <p><strong>Gross:</strong> ${bill.grossWeight || '-'} | <strong>Tare:</strong> ${bill.tareWeight || '-'}</p>
+        <input type="number" placeholder="Gross Weight" id="gross-${bill._id}" />
+        <input type="number" placeholder="Tare Weight" id="tare-${bill._id}" />
+        <input type="datetime-local" placeholder="Out Time" id="out-${bill._id}" />
+        <button onclick="completeBill('${bill._id}')">Complete</button>
+      </div>
     `;
-
-    tbody.appendChild(tr);
+    container.appendChild(div);
   });
 }
 
-async function updateBill(id) {
+fetchPendingBills();
+
+async function completeBill(id) {
   const gross = document.getElementById(`gross-${id}`).value;
   const tare = document.getElementById(`tare-${id}`).value;
-  const outTime = document.getElementById(`outTime-${id}`).value;
+  const outTime = document.getElementById(`out-${id}`).value;
 
-  const body = {};
-  if (gross) body.grossWeight = gross;
-  if (tare) body.tareWeight = tare;
-  if (outTime) body.outTime = outTime;
+  const data = {};
+  if (gross) data.grossWeight = Number(gross);
+  if (tare) data.tareWeight = Number(tare);
+  if (outTime) data.outTime = new Date(outTime);
 
   const res = await fetch(`/api/v1/bill/${id}/complete`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
+    body: JSON.stringify(data),
   });
 
   const result = await res.json();
   if (result.success) {
-    alert("Updated successfully");
+    alert('Updated successfully');
     fetchPendingBills();
   } else {
-    alert("Update failed");
+    alert(result.message);
   }
 }
-
-fetchPendingBills();
