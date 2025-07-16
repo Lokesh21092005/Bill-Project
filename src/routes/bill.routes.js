@@ -60,6 +60,8 @@ router.get('/pending', async (req, res) => {
       { grossWeight: null },
       { tareWeight: { $exists: false } },
       { tareWeight: null },
+      { outTime: { $exists: false } },
+      { outTime: null }
     ]
   });
 
