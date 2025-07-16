@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
   });
 
   if (bill.grossWeight != null && bill.tareWeight != null) {
-    bill.netWeight = bill.grossWeight - bill.tareWeight;
+    bill.netWeight = bill.grossWeight + bill.tareWeight;
   }
 
   await bill.save();
@@ -45,7 +45,7 @@ router.put('/:id/complete', async (req, res) => {
 
   
   if (bill.grossWeight != null && bill.tareWeight != null) {
-    bill.netWeight = bill.grossWeight * bill.tareWeight;
+    bill.netWeight = bill.grossWeight - bill.tareWeight;
   }
 
   await bill.save();
