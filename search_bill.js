@@ -53,7 +53,7 @@ searchForm.addEventListener("submit", async function (e) {
           <td>${bill.material}</td>
           <td>${bill.grossWeight}</td>
           <td>${bill.tareWeight}</td>
-          <td>${bill.grossWeight + bill.tareWeight}</td>
+          <td>${bill.netWeight}</td>
           <td>${bill.bags}</td>
           <td>${bill.charges}</td>
           <td>${new Date(bill.inTime).toLocaleString()}</td>
