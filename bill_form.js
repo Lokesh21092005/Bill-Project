@@ -22,7 +22,7 @@ bill_form.addEventListener('submit', async function (e) {
 
   if (hasGross) data.grossWeight = Number(data.grossWeight);
   else delete data.grossWeight;
-
+                             
   if (hasTare) data.tareWeight = Number(data.tareWeight);
   else delete data.tareWeight;
 
