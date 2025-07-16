@@ -33,7 +33,7 @@ async function completeBill(id) {
   if (tare) data.tareWeight = Number(tare);
   if (outTime) data.outTime = new Date(outTime);
 
-  const res = await fetch(`/api/v1/bill/${id}/complete`, {
+  const res = await fetch(`https://bill-project-nidq.onrender.com/api/v1/bill/${id}/complete`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
