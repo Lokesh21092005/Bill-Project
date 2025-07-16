@@ -47,3 +47,5 @@ async function completeBill(id) {
     alert(result.message);
   }
 }
+
+window.completeBill = completeBill;
