@@ -17,48 +17,54 @@
         </div>
     </header>
 
-    <div class="form-container">
+    
     <form id="uploadBill" class="centered-form" action="https://bill-project-nidq.onrender.com/api/v1/users/billUpload" method="post">
-        <div style = "
-        font-size: 30px;
-        font-weight : bold
-        ">
-            UPLOAD BILL
-        </div>
-        <div>
+        <div style="font-size: 30px; font-weight: bold">
+        UPLOAD BILL
+      </div>
+        <div class = "form-group" >
+            <label for="serialNo">Serial No : </label>
             <input class = "formElement" type="text" name="serialNo" placeholder="Enter serial No" required/>
         </div>
-        <div>
+        <div class = "form-group" >
+            <label for="vehicleNo">vehicle No :</label>
             <input class = "formElement" type="text" name="vehicleNo" placeholder="Enter vehicle no" required/>
         </div>
-        <div>
+        <div class = "form-group" >
+            <label for="party">Party : </label>
             <input class = "formElement" type="text" name="party" placeholder="Enter party name" required/>
         </div>
-        <div>
+       <div class = "form-group" >
+        <label for="grossWeight">Gross Weight : </label>
             <input class = "formElement" type="text" name="grossWeight" placeholder="Enter gross weight" />
         </div>
-        <div>
+        <div class = "form-group" >
+            <label for="tareWeight">Tare Weight : </label>
             <input class = "formElement" type="text" name="tareWeight" placeholder="Enter Tare weight" />
         </div>
        
-        <div>
+        <div class = "form-group" >
+            <label for="bags">Bags : </label>
             <input class = "formElement" type="text" name="bags" placeholder="Enter no of bags" required/>
         </div>
-        <div>
+        <div class = "form-group" >
+            <label for="material">Material : </label>
             <input class = "formElement" type="text" name="material" placeholder="Enter material type" required/>
         </div>
-        <div>
+        <div class = "form-group" >
+            <label for="charges">Charges : </label>
             <input class = "formElement" type="text" name="charges" placeholder="Enter charges" required/>
         </div>
-        <div>
+        <div class = "form-group" >
+            <label for="inTime">In Time : </label>
             <input class = "formElement" type="text" name="inTime" id = "inTime" placeholder="Enter In Time" />
         </div>
-        <div>
+        <div class = "form-group" >
+            <label for="outTime">Out Time</label>
             <input class = "formElement" type="text" name="outTime" id = "outTime" placeholder="Enter out time" />
         </div>
         <button type="submit">Upload Bill</button>
     </form>
-    </div>
 
     <script src="./bill_form.js"></script>
 </body>
