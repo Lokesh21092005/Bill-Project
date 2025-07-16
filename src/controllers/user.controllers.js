@@ -66,7 +66,6 @@ const uploadBill = asyncHandler(async (req, res) => {
     party,
     grossWeight,
     tareWeight,
-    netWeight,
     bags,
     material,
     charges,
@@ -110,6 +109,7 @@ const uploadBill = asyncHandler(async (req, res) => {
     .status(201)
     .json(new ApiResponse(201, bill, "Bill Uploaded Successfully"));
 });
+
 
 
 const searchBills = asyncHandler(async (req, res) => {

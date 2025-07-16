@@ -24,15 +24,15 @@ const billSchema = new Schema(
     },
     grossWeight: {
       type: Number,
-      required: false, // ✅ made optional
+      required: false, 
     },
     tareWeight: {
       type: Number,
-      required: false, // ✅ made optional
+      required: false,
     },
     netWeight: {
       type: Number,
-      required: false, // ✅ calculated later
+      required: false, 
     },
     bags: {
       type: Number,
@@ -46,7 +46,7 @@ const billSchema = new Schema(
     },
     charges: {
       type: Number,
-      required: false, // ✅ not always required initially
+      required: false, 
     },
     inTime: {
       type: Date,

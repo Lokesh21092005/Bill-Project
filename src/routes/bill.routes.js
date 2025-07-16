@@ -2,7 +2,7 @@ import express from 'express';
 import Bill from '../models/bill.model.js';
 const router = express.Router();
 
-// Create bill (initial submission)
+
 router.post('/', async (req, res) => {
   const { inTime, grossWeight, tareWeight, outTime, charges, party, serialNo, material } = req.body;
 
@@ -43,6 +43,7 @@ router.put('/:id/complete', async (req, res) => {
 
   Object.assign(bill, update);
 
+  
   if (bill.grossWeight != null && bill.tareWeight != null) {
     bill.netWeight = bill.grossWeight - bill.tareWeight;
   }
