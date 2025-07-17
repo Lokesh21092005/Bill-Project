@@ -154,7 +154,7 @@ button[type="submit"] {
   text-align: center;
   height: auto;
   padding: 1rem;
-  width: 40%;
+  /* width: ; */ 
 }
 
 /* Excel Table */
@@ -243,19 +243,19 @@ button[type="submit"] {
 
 .form-group {
   display: flex;
-  align-items: center; /* vertically center */
-  gap: 10px; /* space between label and input */
+  align-items: center;
+  gap: 10px; 
   margin-bottom: 15px;
 }
 
 .form-group label {
-  white-space: nowrap; /* prevents label wrapping */
+  white-space: nowrap;
   font-weight: bold;
   width: 150px;
 }
 
 .form-group input {
-  flex: 1; /* input takes remaining space */
+  flex: 1; 
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
