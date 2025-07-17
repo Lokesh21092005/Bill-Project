@@ -10,6 +10,7 @@
     div.innerHTML = `
       <div style="border:1px solid #ccc; padding:10px; margin:10px;">
         <p><strong>Serial No:</strong> ${bill.serialNo}</p>
+        <p><strong>Vehicle No:</strong> ${bill.vehicleNo}</p>
         <p><strong>Gross:</strong> ${bill.grossWeight || '-'} | <strong>Tare:</strong> ${bill.tareWeight || '-'}</p>
         <input type="number" placeholder="Gross Weight" id="gross-${bill._id}" />
         <input type="number" placeholder="Tare Weight" id="tare-${bill._id}" />
