@@ -1,14 +1,23 @@
 const searchForm = document.getElementById("searchForm");
 const billResults = document.getElementById("billResults");
 
-function formatDateToDDMMYY(dateString) {
+function formatDateTimeToDDMMYY_HHMM_AMPM(dateString) {
   const date = new Date(dateString);
   const dd = String(date.getDate()).padStart(2, '0');
-  const mm = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-  const yy = String(date.getFullYear()).slice(-2); // Get last 2 digits of year
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const yy = String(date.getFullYear()).slice(-2);
 
-  return `${dd}${mm}${yy}`;
+  let hours = date.getHours();
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+
+  hours = hours % 12;
+  hours = hours ? hours : 12; // 0 becomes 12
+  const hh = String(hours).padStart(2, '0');
+
+  return `${dd}/${mm}/20${yy}T :${hh}:${minutes} ${ampm}`;
 }
+
 
 searchForm.addEventListener("submit", async function (e) {
   e.preventDefault();
@@ -65,8 +74,8 @@ searchForm.addEventListener("submit", async function (e) {
           <td>${bill.netWeight}</td>
           <td>${bill.bags}</td>
           <td>${bill.charges}</td>
-          <td>${formatDateToDDMMYY(new Date(bill.inTime).toLocaleString())}</td>
-          <td>${formatDateToDDMMYY(new Date(bill.outTime).toLocaleString())}</td>
+          <td>${formatDateToDDMMYY(bill.inTime)}</td>
+          <td>${formatDateToDDMMYY(bill.outTime)}</td>
         </tr>`
         )
         .join("");
