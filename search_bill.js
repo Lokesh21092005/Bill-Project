@@ -15,7 +15,7 @@ function formatDateTimeToDDMMYY_HHMM_AMPM(dateString) {
   hours = hours ? hours : 12; // 0 becomes 12
   const hh = String(hours).padStart(2, '0');
 
-  return `${dd}/${mm}/20${yy}T :${hh}:${minutes} ${ampm}`;
+  return `D:${dd}/${mm}/20${yy} T :${hh}:${minutes} ${ampm}`;
 }
 
 
