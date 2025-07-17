@@ -74,8 +74,8 @@ searchForm.addEventListener("submit", async function (e) {
           <td>${bill.netWeight}</td>
           <td>${bill.bags}</td>
           <td>${bill.charges}</td>
-          <td>${formatDateToDDMMYY(bill.inTime)}</td>
-          <td>${formatDateToDDMMYY(bill.outTime)}</td>
+          <td>${formatDateTimeToDDMMYY_HHMM_AMPM(bill.inTime)}</td>
+          <td>${formatDateTimeToDDMMYY_HHMM_AMPM(bill.outTime)}</td>
         </tr>`
         )
         .join("");
