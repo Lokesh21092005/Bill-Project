@@ -154,7 +154,7 @@ button[type="submit"] {
   text-align: center;
   height: auto;
   padding: 1rem;
-  /* width: ; */ 
+  width: fit-content; 
 }
 
 /* Excel Table */
